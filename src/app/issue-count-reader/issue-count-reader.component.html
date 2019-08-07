@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1>Import Here</h1>
+      <label>Choose a file to import : </label>
+      <input type="file" #issueCountReader name="Upload CSV" id="issueCountFileUpload"
+        (change)="readIssueCountCSV($event)" accept=".csv" /><br><br>
+      <table *ngIf="records.length>0">
+        <thead>
+          <tr>
+            <th>FirstName </th>
+            <th>SurName </th>
+            <th>Issue Count <button (click)="sortIssues()"><img src="assets/image002.jpg"></button></th>
+            <th>Date of birth </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let eachRecord of records">
+            <td> <span>{{eachRecord.first_name}}</span> </td>
+            <td> <span>{{eachRecord.sur_name}}</span> </td>
+            <td> <span>{{eachRecord.issue_count}}</span> </td>
+            <td> <span>{{eachRecord.dob | date : 'full'}}</span> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
